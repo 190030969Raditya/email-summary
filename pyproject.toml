@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "email-summary-agent"
+version = "0.1.0"
+description = "Read Gmail over IMAP and produce an AI-powered daily digest"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["certifi>=2024.2.2", "openai>=1.68,<3", "python-dotenv>=1,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
+
+[project.scripts]
+email-agent = "email_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
